@@ -7,6 +7,7 @@ import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import ItemDetail from './Components/ItemDetail';
 import { useParams } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 const App = () => {
 
@@ -15,9 +16,11 @@ const App = () => {
       <Router>
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<Home/>} />
+          {/* <Route path="" element={<ItemList/>} */}
+          <Route  path="/" element={<Home/>} />
           {/* <Route path="/item/:id" element={<ItemDetail/>} /> */}
           <Route path="/item/:id" element={<ItemDetailWrapper />} />
+          <Route path="/*" element={<Navigate to="/" />} />
         </Routes>
     </Router>
   </Provider>
